@@ -35,6 +35,6 @@ public class E20 : MonoBehaviour
             direction.x = -1;
         }
 
-        transform.position = transform.position + direction * speed * Time.deltaTime;
+        transform.Translate( direction * speed * Time.deltaTime);
     }
 }
