@@ -1,13 +1,12 @@
-using Unity.VisualScripting;
+
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEngine.UI.Image;
 
 public class E59 : MonoBehaviour
 {
     Vector3 direction = new Vector3 (0, 0, 0);
     public float speed = 1; //para que no se mueva instantaneo
-    public static Object Clone;
+    public GameObject Clone;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,7 +39,7 @@ public class E59 : MonoBehaviour
 
         if (Input.GetKeyDown("space")) //https://docs.unity3d.com/ScriptReference/Input.GetKeyDown.html
         {
-            Instantiate(Clone);
+            Instantiate(Clone,transform.position, transform.rotation);
         }
 
         transform.position = transform.position + direction * speed * Time.deltaTime;
