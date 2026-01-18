@@ -1,17 +1,18 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class E30 : MonoBehaviour
+public class E63 : MonoBehaviour
 {
     Vector3 direction = new Vector3 (0, 0, 0);
     public float speed = 1; //para que no se mueva instantaneo
 
     public GameObject redThing;
+    AudioSource audio;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -42,11 +43,6 @@ public class E30 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("El jugador ha entrado.");
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        Debug.Log("El jugador ha SALIDO.");
+        audio.Play();
     }
 }
