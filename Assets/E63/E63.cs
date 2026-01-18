@@ -6,7 +6,6 @@ public class E63 : MonoBehaviour
     Vector3 direction = new Vector3 (0, 0, 0);
     public float speed = 1; //para que no se mueva instantaneo
 
-    public GameObject redThing;
     AudioSource audio;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

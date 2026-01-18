@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class E30 : MonoBehaviour
+public class E31 : MonoBehaviour
 {
     Vector3 direction = new Vector3 (0, 0, 0);
     public float speed = 1; //para que no se mueva instantaneo
@@ -36,15 +36,5 @@ public class E30 : MonoBehaviour
         }
 
         transform.Translate( direction * speed * Time.fixedDeltaTime);
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log("El jugador ha entrado.");
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        Debug.Log("El jugador ha SALIDO.");
     }
 }
