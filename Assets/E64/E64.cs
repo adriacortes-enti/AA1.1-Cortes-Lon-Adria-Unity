@@ -7,11 +7,12 @@ public class E64 : MonoBehaviour
     Vector3 direction = new Vector3 (0, 0, 0);
     public float speed = 1; //para que no se mueva instantaneo
     public GameObject Clone;
+    AudioSource audio;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -40,6 +41,7 @@ public class E64 : MonoBehaviour
         if (Input.GetKeyDown("space")) //https://docs.unity3d.com/ScriptReference/Input.GetKeyDown.html
         {
             Instantiate(Clone,transform.position, transform.rotation);
+            audio.Play();
         }
 
         transform.position = transform.position + direction * speed * Time.deltaTime;
