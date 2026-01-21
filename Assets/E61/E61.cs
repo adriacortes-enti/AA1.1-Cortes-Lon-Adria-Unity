@@ -43,11 +43,19 @@ public class E61 : MonoBehaviour
 
         if (Input.GetKeyDown("space")) //https://docs.unity3d.com/ScriptReference/Input.GetKeyDown.html
         {
-            Instantiate(Clone,transform.position, transform.rotation);
+            GameObject clonedObject = Instantiate(Clone, transform.position, transform.rotation);
+            Destroy(clonedObject, 3);
+            Invoke("Despawn", 3);
             counter++;
             Text.text = counter.ToString();
         }
 
         transform.position = transform.position + direction * speed * Time.deltaTime;
+    }
+
+    void Despawn()
+    {
+            counter--;
+            Text.text = counter.ToString();
     }
 }
