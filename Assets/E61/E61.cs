@@ -1,11 +1,16 @@
+
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
-
-public class E41 : MonoBehaviour
+public class E61 : MonoBehaviour
 {
     Vector3 direction = new Vector3 (0, 0, 0);
     public float speed = 1; //para que no se mueva instantaneo
+    public GameObject Clone;
+    public TextMeshProUGUI Text;
+    int counter;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -14,7 +19,7 @@ public class E41 : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         direction.y = 0;
         direction.x = 0;
@@ -36,12 +41,13 @@ public class E41 : MonoBehaviour
             direction.x = -1;
         }
 
-        transform.Translate( direction * speed * Time.fixedDeltaTime);
-    }
+        if (Input.GetKeyDown("space")) //https://docs.unity3d.com/ScriptReference/Input.GetKeyDown.html
+        {
+            Instantiate(Clone,transform.position, transform.rotation);
+            counter++;
+            Text.text = counter.ToString();
+        }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        Destroy(other.gameObject);
+        transform.position = transform.position + direction * speed * Time.deltaTime;
     }
-
 }

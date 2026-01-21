@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
-public class E41 : MonoBehaviour
+public class E42 : MonoBehaviour
 {
+    int counter;
     Vector3 direction = new Vector3 (0, 0, 0);
     public float speed = 1; //para que no se mueva instantaneo
 
@@ -41,7 +41,7 @@ public class E41 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Destroy(other.gameObject);
+        counter++;
+        Debug.Log(counter);
     }
-
 }

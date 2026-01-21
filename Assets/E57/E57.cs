@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
-
-public class E41 : MonoBehaviour
+public class E57 : MonoBehaviour
 {
     Vector3 direction = new Vector3 (0, 0, 0);
     public float speed = 1; //para que no se mueva instantaneo
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,12 +37,7 @@ public class E41 : MonoBehaviour
             direction.x = -1;
         }
 
-        transform.Translate( direction * speed * Time.fixedDeltaTime);
-    }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        Destroy(other.gameObject);
-    }
 
+    }
 }
